@@ -7,6 +7,7 @@ import com.example.journelApp.repository.UserRepository;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,11 +20,18 @@ public class JournelEntryService {
     private UserRepository userRepository;
     @Autowired
     private  UserService userService;
+    @Transactional
     public void saveEntry(JournelEntry journelEntry,String userName){
-        User user = userRepository.findByUserName(userName);
-        JournelEntry saved = journelEntryRepository.save(journelEntry);
-        user.getJournelEntries().add(saved);
-        userRepository.save(user);
+        try{
+            User user = userRepository.findByUserName(userName);
+            JournelEntry saved = journelEntryRepository.save(journelEntry);
+            user.getJournelEntries().add(saved);
+            userRepository.save(user);
+        }
+        catch (Exception e){
+            System.out.println(e);
+            throw new RuntimeException("Exception occured");
+        }
     }
     public void saveEntry(JournelEntry journelEntry){
         journelEntryRepository.save(journelEntry);
