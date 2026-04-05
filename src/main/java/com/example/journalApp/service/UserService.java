@@ -26,11 +26,7 @@ public class UserService {
             user.setRoles(Arrays.asList("USER"));
             userRepository.save(user);
         } catch (Exception e) {
-            log.trace("ha",e);
-            log.debug("ha",e);
-            log.info("ha");
-            log.warn("ha");
-            log.error("ha");
+            log.error("Exception while saving a user",e);
         }
     }
     public void saveAdminEntry(User user){

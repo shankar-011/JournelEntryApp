@@ -15,7 +15,7 @@ public class appCacheScheduler {
     private EmailService emailService;
     @Value("${my.email}")
     private String mailId;
-    @Scheduled(cron = "0 * * * * *")
+    //@Scheduled(cron = "0 * * * * *")
     public void refreshAppCache(){
         appCache.init();
         emailService.sendMail(mailId,"Cache Refreshed","");
