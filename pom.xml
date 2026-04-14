@@ -6,13 +6,13 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.5.11</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/>
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>journalApp</artifactId>
+	<artifactId>NotesApp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>journalApp</name>
-	<description>A journal app</description>
+	<name>NotesApp</name>
+	<description>A notes app</description>
 	<url/>
 	<licenses>
 		<license/>
